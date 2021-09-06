@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\About.cs" />
+    <Compile Include="Concrete\Category.cs" />
     <Compile Include="Concrete\Content.cs" />
     <Compile Include="Concrete\Heading.cs" />
     <Compile Include="Concrete\Writer.cs" />
