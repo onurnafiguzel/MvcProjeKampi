@@ -14,5 +14,7 @@ namespace EntityLayer.Concrete
 
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
+
+        public ICollection<Content> Contents { get; set; }
     }
 }
