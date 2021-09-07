@@ -16,5 +16,10 @@ namespace BusinessLayer.Concrete
         {
             return repository.List();
         }
+
+        public void Add(Category category)
+        {
+            repository.Insert(category);
+        }
     }
 }
