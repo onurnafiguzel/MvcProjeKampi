@@ -9,9 +9,10 @@ namespace DataAccessLayer.Abstract
 {
     public interface IRepository<T>
     {
-        List<T> List(Expression<Func<T,bool>> filter=null);
+        List<T> List(Expression<Func<T, bool>> filter = null);
         void Insert(T entity);
         void Delete(T entity);
         void Update(T entity);
+        T Get(Expression<Func<T, bool>> filter);
     }
 }
