@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,12 @@ namespace MvcProjeKampi.Controllers
     public class WriterController : Controller
     {
         // GET: Writer
-        WriterManager writerManager=new WriterManager(new EfWriterDal())
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
+
         public ActionResult Index()
         {
-            return View();
+            var result = writerManager.GetAll();
+            return View(result);
         }
     }
 }
