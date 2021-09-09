@@ -17,6 +17,7 @@ namespace BusinessLayer.ValidationRules
             RuleFor(x => x.WriterAbout).NotEmpty().WithMessage("Hakkımda boş bırakılamaz.");
             RuleFor(x => x.WriterSurName).MinimumLength(2).WithMessage("Yazar soyadı en az 2 içermelidir.");
             RuleFor(x => x.WriterSurName).MaximumLength(20).WithMessage("Yazar soyadı en fazla 20 karakter içermelidir.");
+            RuleFor(x => x.WriterTitle).NotEmpty().WithMessage("Ünvan kısmı boş geçilemez");
            // RuleFor(x => x.WriterSurName).Must(StartWithA).WithMessage("Yazar soyadı 'A'  harfi içermelidir.");
         }
         private bool StartWithA(string arg)
