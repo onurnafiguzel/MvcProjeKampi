@@ -13,6 +13,8 @@ namespace MvcProjeKampi.Controllers
     {
         // GET: Heading
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
+        CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
 
         public ActionResult Index()
         {
@@ -23,6 +25,20 @@ namespace MvcProjeKampi.Controllers
         [HttpGet]
         public ActionResult AddHeading()
         {
+            List<SelectListItem> valueCategory = (from x in categoryManager.GetAll()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryId.ToString()
+                                                  }).ToList();
+            List<SelectListItem> valueWriter = (from x in writerManager.GetAll()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.WriterName +" "+ x.WriterSurName,
+                                                    Value = x.WriterId.ToString()
+                                                }).ToList();
+            ViewBag.category = valueCategory;
+            ViewBag.writer = valueWriter;
             return View();
         }
 
