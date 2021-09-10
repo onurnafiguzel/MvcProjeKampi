@@ -16,7 +16,8 @@ namespace MvcProjeKampi.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var result = aboutManager.GetAll();
+            return View(result);
         }
 
         [HttpGet]
