@@ -50,7 +50,7 @@ namespace MvcProjeKampi.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ContentByHeading(int id)
+        public ActionResult ContentByHeading()
         {
             return View();
         }
