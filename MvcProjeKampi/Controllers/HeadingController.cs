@@ -34,7 +34,7 @@ namespace MvcProjeKampi.Controllers
             List<SelectListItem> valueWriter = (from x in writerManager.GetAll()
                                                 select new SelectListItem
                                                 {
-                                                    Text = x.WriterName +" "+ x.WriterSurName,
+                                                    Text = x.WriterName + " " + x.WriterSurName,
                                                     Value = x.WriterId.ToString()
                                                 }).ToList();
             ViewBag.category = valueCategory;
@@ -47,6 +47,27 @@ namespace MvcProjeKampi.Controllers
         {
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             headingManager.HeadingAdd(heading);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult EditHeading(int id)
+        {
+            List<SelectListItem> valueCategory = (from x in categoryManager.GetAll()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryId.ToString()
+                                                  }).ToList();
+            ViewBag.category = valueCategory;
+            var result = headingManager.GetById(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult EditHeading(Heading heading)
+        {
+            headingManager.HeadingUpdate(heading);
             return RedirectToAction("Index");
         }
     }
