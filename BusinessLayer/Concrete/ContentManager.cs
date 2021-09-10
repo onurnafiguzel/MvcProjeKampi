@@ -38,6 +38,11 @@ namespace BusinessLayer.Concrete
             return _contentDal.List();
         }
 
+        public List<Content> GetAllById(int id)
+        {
+            return _contentDal.List(c => c.HeadingId == id);
+        }
+
         public Content GetById(int id)
         {
             return _contentDal.Get(c => c.ContentId == id);
