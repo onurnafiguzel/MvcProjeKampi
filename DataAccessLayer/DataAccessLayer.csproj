@@ -92,6 +92,10 @@
     <Compile Include="Migrations\202109101326588_mig_contentstatusadd.designer.cs">
       <DependentUpon>202109101326588_mig_contentstatusadd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109101329504_mig_headingstatusad.cs" />
+    <Compile Include="Migrations\202109101329504_mig_headingstatusad.designer.cs">
+      <DependentUpon>202109101329504_mig_headingstatusad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -120,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109101326588_mig_contentstatusadd.resx">
       <DependentUpon>202109101326588_mig_contentstatusadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109101329504_mig_headingstatusad.resx">
+      <DependentUpon>202109101329504_mig_headingstatusad.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
