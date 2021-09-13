@@ -115,7 +115,7 @@
                             <div class="mailbox-read-info">
                                 <h5>Konu: @Html.DisplayFor(x => x.Subject)</h5>
                                 <h6>
-                                    Mail: @Html.DisplayFor(x => x.UserMail)
+                                    Mail: @Html.DisplayFor(x => x.SenderMail)
                                     <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span>
                                 </h6>
                             </div>
@@ -139,7 +139,7 @@
                             </div>
                             <!-- /.mailbox-controls -->
                             <div class="mailbox-read-message">
-                                <p>@Html.DisplayFor(x => x.Message)</p>
+                                <p>@Html.DisplayFor(x => x.MessageContent)</p>
                             </div>
                             <!-- /.mailbox-read-message -->
                         </div>
