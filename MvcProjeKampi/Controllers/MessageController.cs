@@ -15,7 +15,13 @@ namespace MvcProjeKampi.Controllers
 
         public ActionResult Inbox()
         {
-            var result = messageManager.GetAll();
+            var result = messageManager.GetAllInBox();
+            return View(result);
+        }
+
+        public ActionResult SendBox()
+        {
+            var result = messageManager.GetAllSentBox();
             return View(result);
         }
     }
