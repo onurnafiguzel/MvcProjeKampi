@@ -18,9 +18,14 @@ namespace BusinessLayer.Concrete
             _messageDal = messageDal;
         }
 
-        public List<Message> GetAll()
+        public List<Message> GetAllInBox()
         {
             return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com"); //Test amaçlı
+        }
+
+        public List<Message> GetAllSentBox()
+        {
+            return _messageDal.List(x => x.SenderMail == "admin@gmail.com"); //Test amaçlı
         }
 
         public Message GetById(int id)
