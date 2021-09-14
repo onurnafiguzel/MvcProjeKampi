@@ -42,6 +42,12 @@ namespace MvcProjeKampi.Controllers
         }
 
         [HttpGet]
+        public ActionResult NewMessage()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult NewMessage(Message message)
         {
             ValidationResult validationResult = messageValidator.Validate(message);
