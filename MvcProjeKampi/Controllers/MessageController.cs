@@ -53,6 +53,7 @@ namespace MvcProjeKampi.Controllers
             ValidationResult validationResult = messageValidator.Validate(message);
             if (validationResult.IsValid)
             {
+                message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 messageManager.MessageAdd(message);
                 return RedirectToAction("SendBox");
             }
