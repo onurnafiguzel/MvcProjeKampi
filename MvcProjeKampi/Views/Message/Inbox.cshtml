@@ -83,7 +83,7 @@
                                                 <b>@item.Subject</b> -@item.MessageContent.Substring(0, 5) @*30'dan az karakter varsa hata veriyor anlamsız ?*@
                                             </td>
                                             <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date">5 mins ago</td>
+                                            <td class="mailbox-date">@(((DateTime)item.MessageDate).ToString("dd-MMMM-yyyy"))</td>
                                         </tr>
                                     }
                                 </tbody>
