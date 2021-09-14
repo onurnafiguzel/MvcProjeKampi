@@ -38,7 +38,7 @@
                             <div class="mailbox-read-info">
                                 <h5>Konu: @Html.DisplayFor(x => x.Subject)</h5>
                                 <h6>
-                                    Mail: @Html.DisplayFor(x => x.SenderMail)
+                                    Alıcı: @Html.DisplayFor(x => x.ReceiverMail)
                                     <span class="mailbox-read-time float-right">@DateTime.Parse(Html.DisplayFor(x => x.MessageDate).ToString()).ToString("dd-MMMMM-yyyy")</span>
                                 </h6>
                             </div>
