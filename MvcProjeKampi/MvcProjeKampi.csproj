@@ -149,6 +149,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminLTE-3.0.4\araba\WhatsApp Image 2021-06-29 at 20.43.22 %281%29.jpeg" />
+    <Content Include="AdminLTE-3.0.4\araba\WhatsApp Image 2021-06-29 at 20.43.22.jpeg" />
+    <Content Include="AdminLTE-3.0.4\araba\WhatsApp Image 2021-06-29 at 20.43.23 %281%29.jpeg" />
+    <Content Include="AdminLTE-3.0.4\araba\WhatsApp Image 2021-06-29 at 20.43.23 %282%29.jpeg" />
+    <Content Include="AdminLTE-3.0.4\araba\WhatsApp Image 2021-06-29 at 20.43.23 %283%29.jpeg" />
+    <Content Include="AdminLTE-3.0.4\araba\WhatsApp Image 2021-06-29 at 20.43.23.jpeg" />
+    <Content Include="AdminLTE-3.0.4\araba\WhatsApp Image 2021-06-29 at 20.43.24.jpeg" />
     <Content Include="AdminLTE-3.0.4\build\config\postcss.config.js" />
     <Content Include="AdminLTE-3.0.4\build\config\rollup.config.js" />
     <Content Include="AdminLTE-3.0.4\build\js\AdminLTE.js" />
