@@ -18,9 +18,10 @@ namespace MvcProjeKampi.Controllers
             return View();
         }
 
-        public ActionResult MyHeading()
+        public ActionResult MyHeading(int id)
         {
-            return View();
+            var result = headingManager.GetAll(id);
+            return View(result);
         }
     }
 }
