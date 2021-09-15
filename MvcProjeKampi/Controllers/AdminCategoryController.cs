@@ -15,7 +15,7 @@ namespace MvcProjeKampi.Controllers
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
 
-        [Authorize]
+        [Authorize(Roles="B")] //Sadece B rolüne sahip olanlar kullanabilir
         public ActionResult Index()
         {
             var resut = categoryManager.GetAll();
