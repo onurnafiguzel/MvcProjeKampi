@@ -9,7 +9,7 @@ namespace MvcProjeKampi.Controllers
     public class WriterPanelController : Controller
     {
         // GET: WriterPanel
-        public ActionResult Index()
+        public ActionResult WriterProfile()
         {
             return View();
         }
