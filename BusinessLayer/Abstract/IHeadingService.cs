@@ -14,5 +14,6 @@ namespace BusinessLayer.Abstract
         void HeadingDelete(Heading heading);
         void HeadingUpdate(Heading heading);
         Heading GetById(int id);
+        List<Heading> GetAll(int id);
     }
 }
