@@ -50,5 +50,26 @@ namespace MvcProjeKampi.Controllers
             headingManager.HeadingAdd(heading);
             return RedirectToAction("MyHeading");
         }
+
+        [HttpGet]
+        public ActionResult EditHeading(int id)
+        {
+            List<SelectListItem> valueCategory = (from x in categoryManager.GetAll()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryId.ToString()
+                                                  }).ToList();
+            ViewBag.category = valueCategory;
+            var result = headingManager.GetById(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult EditHeading(Heading heading)
+        {
+            headingManager.HeadingUpdate(heading);
+            return RedirectToAction("MyHeading");
+        }
     }
 }
