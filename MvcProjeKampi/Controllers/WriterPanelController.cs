@@ -46,8 +46,9 @@ namespace MvcProjeKampi.Controllers
         {
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             heading.WriterId = 5;
+            heading.HeadingStatus = true;
             headingManager.HeadingAdd(heading);
-            return RedirectToAction("Index");
+            return RedirectToAction("MyHeading");
         }
     }
 }
