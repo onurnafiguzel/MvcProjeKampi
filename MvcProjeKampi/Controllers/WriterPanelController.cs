@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace MvcProjeKampi.Controllers
     {
         // GET: WriterPanel
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
+        CategoryManager categoryManager = new CategoryManager(new EfCategoryDal
+            ());
 
         public ActionResult WriterProfile()
         {
@@ -22,6 +25,26 @@ namespace MvcProjeKampi.Controllers
         {
             var result = headingManager.GetAll(id);
             return View(result);
+        }
+
+        [HttpGet]
+        public ActionResult NewHeading()
+        {
+            List<SelectListItem> valueCategory = (from x in categoryManager.GetAll()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryId.ToString()
+                                                  }).ToList();
+
+            ViewBag.category = valueCategory;
+            return View();
+        }
+
+        [HttpPost]
+        public Action NewHeading(Heading heading)
+        {           
+            return View();
         }
     }
 }
