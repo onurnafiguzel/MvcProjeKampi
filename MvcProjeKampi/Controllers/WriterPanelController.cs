@@ -41,10 +41,13 @@ namespace MvcProjeKampi.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public Action NewHeading(Heading heading)
-        //{           
-        //    return View();
-        //}
+        [HttpPost]
+        public ActionResult NewHeading(Heading heading)
+        {
+            heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            heading.WriterId = 5;
+            headingManager.HeadingAdd(heading);
+            return RedirectToAction("Index");
+        }
     }
 }
