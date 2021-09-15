@@ -21,9 +21,9 @@ namespace MvcProjeKampi.Controllers
             return View();
         }
 
-        public ActionResult MyHeading(int id)
+        public ActionResult MyHeading()
         {
-            var result = headingManager.GetAll(id);
+            var result = headingManager.GetAllByWriter();
             return View(result);
         }
 
@@ -41,10 +41,10 @@ namespace MvcProjeKampi.Controllers
             return View();
         }
 
-        [HttpPost]
-        public Action NewHeading(Heading heading)
-        {           
-            return View();
-        }
+        //[HttpPost]
+        //public Action NewHeading(Heading heading)
+        //{           
+        //    return View();
+        //}
     }
 }
