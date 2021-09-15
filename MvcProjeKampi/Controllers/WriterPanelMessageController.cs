@@ -58,6 +58,7 @@ namespace MvcProjeKampi.Controllers
             ValidationResult validationResult = messageValidator.Validate(message);
             if (validationResult.IsValid)
             {
+                message.SenderMail = "asli@gmail.com";
                 message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 messageManager.MessageAdd(message);
                 return RedirectToAction("SendBox");
