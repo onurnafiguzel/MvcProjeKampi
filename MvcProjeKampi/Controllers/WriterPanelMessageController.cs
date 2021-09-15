@@ -31,5 +31,18 @@ namespace MvcProjeKampi.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult GetInBoxMessageDetails(int id)
+        {
+            var result = messageManager.GetById(id);
+            return View(result);
+        }
+
+        public ActionResult GetSendBoxMessageDetails(int id)
+        {
+            var result = messageManager.GetById(id);
+            return View(result);
+        }
+
     }
 }
