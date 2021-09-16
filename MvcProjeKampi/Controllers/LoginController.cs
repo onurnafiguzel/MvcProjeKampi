@@ -44,5 +44,20 @@ namespace MvcProjeKampi.Controllers
         {
             return View();
         }
+
+        public ActionResult WriterLogin(Writer writer)
+        {
+            var result = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+            if (result != null)
+            {
+                FormsAuthentication.SetAuthCookie(result.WriterMail, false);// Kalıcı cookie oluşsun mu?
+                Session["WriterMail"] = result.WriterMail;
+                return RedirectToAction("MyContent", "WriterPanelContent");
+            }
+            else
+            {
+                return RedirectToAction("WriterLogin");
+            }
+        }
     }
 }
