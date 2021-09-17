@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,12 @@ namespace MvcProjeKampi.Controllers
         // GET: WriterPanelContent
         ContentManager contentManager = new ContentManager(new EfContentDal());
 
-        public ActionResult MyContent()
-        {
-            var result = contentManager.GetAllByWriter();
+        Context context = new Context();
+        public ActionResult MyContent(string parameter)
+        {          
+            parameter = (string)Session["WriterMail"];
+            var writeridinfo = context.Writers.Where(x => x.WriterMail == parameter).Select(y => y.WriterId).FirstOrDefault();
+            var result = contentManager.GetAllByWriter(writeridinfo);
             return View(result);
         }
     }
