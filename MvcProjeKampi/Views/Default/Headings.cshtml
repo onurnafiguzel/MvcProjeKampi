@@ -1,4 +1,5 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Heading>
 @{
     Layout = null;
 }
@@ -58,28 +59,16 @@ to get the desired effect
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item">
-                            <a href="/WriterPanel/MyHeading/" class="nav-link">
-                                <p>
-                                    Başlık 1
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/WriterPanel/MyHeading/" class="nav-link">
-                                <p>
-                                    Başlık 2
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/WriterPanel/MyHeading/" class="nav-link">
-                                <p>
-                                    Başlık 3
-                                </p>
-                            </a>
-                        </li>
-
+                        @foreach (var item in Model)
+                        {
+                            <li class="nav-item">
+                                <a href="/WriterPanel/MyHeading/" class="nav-link">
+                                    <p>
+                                        @item.HeadingName
+                                    </p>
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -90,7 +79,7 @@ to get the desired effect
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <div class="content">
-               
+
                 <!-- /.container-fluid -->
             </div>
             <!-- /.content -->

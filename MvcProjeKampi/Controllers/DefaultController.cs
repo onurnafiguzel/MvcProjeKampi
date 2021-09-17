@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +11,11 @@ namespace MvcProjeKampi.Controllers
     public class DefaultController : Controller
     {
         // GET: Default
+        HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         public ActionResult Headings()
         {
-            return View();
+            var result = headingManager.GetAll();
+            return View(result);
         }
 
         public ActionResult Index()
