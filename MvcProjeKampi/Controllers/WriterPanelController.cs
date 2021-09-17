@@ -48,8 +48,10 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult NewHeading(Heading heading)
         {
+            string writermailinfo = (string)Session["WriterMail"];
+            var writeridinfo = context.Writers.Where(x => x.WriterMail == writermailinfo).Select(y => y.WriterId).FirstOrDefault();
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            heading.WriterId = 5;
+            heading.WriterId = writeridinfo;
             heading.HeadingStatus = true;
             headingManager.HeadingAdd(heading);
             return RedirectToAction("MyHeading");
