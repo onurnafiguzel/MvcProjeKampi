@@ -8,10 +8,12 @@ using System.Web.Mvc;
 
 namespace MvcProjeKampi.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         // GET: Default
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
+        ContentManager contentManager = new ContentManager(new EfContentDal());
         public ActionResult Headings()
         {
             var result = headingManager.GetAll();
@@ -20,7 +22,8 @@ namespace MvcProjeKampi.Controllers
 
         public PartialViewResult Index()
         {
-            return PartialView();
+            var result = contentManager.GetAll();
+            return PartialView(result);
         }
     }
 }
