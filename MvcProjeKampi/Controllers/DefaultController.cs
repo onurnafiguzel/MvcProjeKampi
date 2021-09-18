@@ -18,9 +18,9 @@ namespace MvcProjeKampi.Controllers
             return View(result);
         }
 
-        public ActionResult Index()
+        public PartialViewResult Index()
         {
-            return View();
+            return PartialView();
         }
     }
 }
