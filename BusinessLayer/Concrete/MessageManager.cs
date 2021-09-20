@@ -23,9 +23,9 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.ReceiverMail == mail);
         }
 
-        public List<Message> GetAllSentBox()
+        public List<Message> GetAllSentBox(string mail)
         {
-            return _messageDal.List(x => x.SenderMail == "asli@gmail.com"); //Test amaçlı
+            return _messageDal.List(x => x.SenderMail == mail);
         }
 
         public Message GetById(int id)

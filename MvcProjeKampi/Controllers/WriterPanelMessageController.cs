@@ -27,6 +27,7 @@ namespace MvcProjeKampi.Controllers
 
         public ActionResult SendBox()
         {
+            string parameter = (string)Session["WriterMail"];
             var result = messageManager.GetAllSentBox();
             return View(result);
         }
