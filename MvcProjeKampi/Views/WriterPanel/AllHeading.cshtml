@@ -118,7 +118,7 @@
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Bu başlığa yaz
-                                    </a>                                    
+                                    </a>
                                 </td>
                             </tr>
                         }
@@ -131,4 +131,8 @@
     </section>
 </body>
 </html>
-@Html.PagedListPager((IPagedList)Model,adet=>Url.Action("AllHeading",new {adet }))
+@Html.PagedListPager((IPagedList)Model, adet => Url.Action("AllHeading", new { adet }), new PagedListRenderOptions
+{
+LiElementClasses = new List<string>
+{"page-link"}
+})
