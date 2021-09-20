@@ -20,27 +20,27 @@ namespace MvcProjeKampi.Controllers
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal
             ());
-        WriterManager WriterManager = new WriterManager(new EfWriterDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
         Context context = new Context();
+        WriterValidator writerValidator = new WriterValidator();
 
         [HttpGet]
         public ActionResult WriterProfile(int id=0)
         {
             string parameter = (string)Session["WriterMail"];
             id = context.Writers.Where(x => x.WriterMail == parameter).Select(y => y.WriterId).FirstOrDefault();
-            var result = WriterManager.GetById(id);
+            var result = writerManager.GetById(id);
             return View(result);
         }
-
 
         [HttpPost]
         public ActionResult WriterProfile(Writer writer)
         {
-            ValidationResult validationResult = WriterValidator.Validate(writer);
+            ValidationResult validationResult = writerValidator.Validate(writer);
             if (validationResult.IsValid)
             {
                 writerManager.WriterUpdate(writer);
-                return RedirectToAction("Index");
+                return RedirectToAction("AllHeading","WriterPanel");
             }
             else
             {
