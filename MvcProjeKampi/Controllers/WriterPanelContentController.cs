@@ -42,5 +42,6 @@ namespace MvcProjeKampi.Controllers
             contentManager.ContentAdd(content);
             return RedirectToAction("MyContent");
         }
+
     }
 }
