@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -16,10 +17,13 @@ namespace MvcProjeKampi.Controllers
         // GET: WriterPanelMessage
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
+        Context context = new Context();
 
         public ActionResult Inbox()
         {
-            var result = messageManager.GetAllInBox();
+            string parameter = (string)Session["WriterMail"];
+            var writeridinfo = context.Writers.Where(x => x.WriterMail == parameter).Select(y => y.WriterId).FirstOrDefault();
+            var result = messageManager.GetAllInBox(parameter);
             return View(result);
         }
 
