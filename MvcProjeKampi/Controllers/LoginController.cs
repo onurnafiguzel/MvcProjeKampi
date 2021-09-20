@@ -14,9 +14,9 @@ namespace MvcProjeKampi.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
-        // GET: Login
-        AdminManager adminManager = new AdminManager(new EfAdminDal());
+        // GET: Login      
         Context context = new Context();
+        WriterLoginManager writerLoginManager = new WriterLoginManager(new EfWriterDal());
 
         [HttpGet]
         public ActionResult Index()
@@ -47,8 +47,8 @@ namespace MvcProjeKampi.Controllers
         }
 
         public ActionResult WriterLogin(Writer writer)
-        {
-            var result = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+        {            
+            var result = writerLoginManager.GetWriter(writer.WriterMail, writer.WriterPassword);
             if (result != null)
             {
                 FormsAuthentication.SetAuthCookie(result.WriterMail, false);// Kalıcı cookie oluşsun mu?
