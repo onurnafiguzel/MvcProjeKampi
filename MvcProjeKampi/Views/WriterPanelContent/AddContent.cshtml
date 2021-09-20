@@ -4,16 +4,17 @@
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-<h2>Yeni Başlık Ekleme</h2>
+<h2>Başlığa İçerik Girişi</h2>
 <br />
-@using (Html.BeginForm("AddHeading", "Heading", FormMethod.Post))
+@using (Html.BeginForm("AddContent", "WriterPanelContent", FormMethod.Post))
 {
     <div class="form-group">
-        @Html.Label("Başlık Adı")
+        <input type="hidden" name="HeadingId" value="@ViewBag.id"/>
+        @Html.Label("İçeriğinizi yazın")
         @Html.TextAreaFor(x => x.ContentValue,4,30, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.ContentValue)
         <br />       
-        <button class="btn btn-info">Başlık Oluştur</button>
+        <button class="btn btn-info">Kaydet</button>
     </div>
 }
 
