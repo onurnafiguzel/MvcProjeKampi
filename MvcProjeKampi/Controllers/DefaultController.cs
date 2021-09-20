@@ -20,9 +20,9 @@ namespace MvcProjeKampi.Controllers
             return View(result);
         }
 
-        public PartialViewResult Index()
+        public PartialViewResult Index(int id=0) // Boş gelmemesi için
         {
-            var result = contentManager.GetAll();
+            var result = contentManager.GetAllByHeadingId(id);
             return PartialView(result);
         }
     }
