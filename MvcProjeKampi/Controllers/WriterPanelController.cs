@@ -18,11 +18,15 @@ namespace MvcProjeKampi.Controllers
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal
             ());
+        WriterManager WriterManager = new WriterManager(new EfWriterDal());
         Context context = new Context();
 
-        public ActionResult WriterProfile()
+        public ActionResult WriterProfile(int id=0)
         {
-            return View();
+            string parameter = (string)Session["WriterMail"];
+            id = context.Writers.Where(x => x.WriterMail == parameter).Select(y => y.WriterId).FirstOrDefault();
+            var result = WriterManager.GetById(id);
+            return View(result);
         }
 
         public ActionResult MyHeading(string parameter)
@@ -88,9 +92,9 @@ namespace MvcProjeKampi.Controllers
             return RedirectToAction("MyHeading");
         }
 
-        public ActionResult AllHeading(int adet=1)
+        public ActionResult AllHeading(int adet = 1)
         {
-            var result = headingManager.GetAll().ToPagedList(adet,4);
+            var result = headingManager.GetAll().ToPagedList(adet, 4);
             return View(result);
         }
     }
