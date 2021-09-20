@@ -16,13 +16,11 @@ namespace MvcProjeKampi.Controllers
     {
         // GET: WriterPanelMessage
         MessageManager messageManager = new MessageManager(new EfMessageDal());
-        MessageValidator messageValidator = new MessageValidator();
-        Context context = new Context();
+        MessageValidator messageValidator = new MessageValidator();      
 
         public ActionResult Inbox()
         {
-            string parameter = (string)Session["WriterMail"];
-            var writeridinfo = context.Writers.Where(x => x.WriterMail == parameter).Select(y => y.WriterId).FirstOrDefault();
+            string parameter = (string)Session["WriterMail"];           
             var result = messageManager.GetAllInBox(parameter);
             return View(result);
         }
