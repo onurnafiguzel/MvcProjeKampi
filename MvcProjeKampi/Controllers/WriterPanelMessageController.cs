@@ -16,11 +16,11 @@ namespace MvcProjeKampi.Controllers
     {
         // GET: WriterPanelMessage
         MessageManager messageManager = new MessageManager(new EfMessageDal());
-        MessageValidator messageValidator = new MessageValidator();      
+        MessageValidator messageValidator = new MessageValidator();
 
         public ActionResult Inbox()
         {
-            string parameter = (string)Session["WriterMail"];           
+            string parameter = (string)Session["WriterMail"];
             var result = messageManager.GetAllInBox(parameter);
             return View(result);
         }
@@ -28,7 +28,7 @@ namespace MvcProjeKampi.Controllers
         public ActionResult SendBox()
         {
             string parameter = (string)Session["WriterMail"];
-            var result = messageManager.GetAllSentBox();
+            var result = messageManager.GetAllSentBox(parameter);
             return View(result);
         }
 

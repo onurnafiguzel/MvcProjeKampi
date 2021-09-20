@@ -24,9 +24,9 @@ namespace MvcProjeKampi.Controllers
             return View(result);
         }
 
-        public ActionResult SendBox()
+        public ActionResult SendBox(string parameter)
         {
-            var result = messageManager.GetAllSentBox();
+            var result = messageManager.GetAllSentBox(parameter);
             return View(result);
         }
 
