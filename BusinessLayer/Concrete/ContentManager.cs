@@ -33,9 +33,9 @@ namespace BusinessLayer.Concrete
             _contentDal.Update(content);
         }
 
-        public List<Content> GetAll()
+        public List<Content> GetAll(string word)
         {
-            return _contentDal.List();
+            return _contentDal.List(x => x.ContentValue.Contains(word));
         }
 
         public List<Content> GetAllByHeadingId(int id)
