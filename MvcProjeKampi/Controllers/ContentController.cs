@@ -13,7 +13,6 @@ namespace MvcProjeKampi.Controllers
     {
         // GET: Content
         ContentManager contentManager = new ContentManager(new EfContentDal());
-        Context context = new Context();
 
         public ActionResult Index()
         {
@@ -27,13 +26,9 @@ namespace MvcProjeKampi.Controllers
         }
 
         public ActionResult GetAllContent(string word)
-        {           
-            var result = from x in context.Contents select x;
-            if (!string.IsNullOrEmpty(word))
-            {
-                result = result.Where(y => y.ContentValue.Contains(word));
-            }
-            return View(result.ToList());
+        {
+            var result = contentManager.GetAll(word);
+            return View(result);
         }
     }
 }
