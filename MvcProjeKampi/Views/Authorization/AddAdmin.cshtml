@@ -13,13 +13,13 @@
     <div class="form-group">
         @Html.Label("Admin Kullanıcı Adı")
         @Html.TextBoxFor(x => x.AdminUserName, new { @class = "form-control" })
-        <br /><br />
+        <br />
         @Html.Label("Şİfreyi yazınız")
-        @Html.TextAreaFor(x => x.AdminPassword, new { @class = "form-control" })
-        <br /><br /> 
+        @Html.TextBoxFor(x => x.AdminPassword, new { @class = "form-control" })
+        <br />
         @Html.Label("Rolü seçiniz")
-        @Html.TextAreaFor(x => x.AdminRole, new { @class = "form-control" })
-        <br /><br />
+        @Html.TextBoxFor(x => x.AdminRole, new { @class = "form-control" })
+        <br />
         <button class="btn btn-primary">kaydet</button>
     </div>
 }
