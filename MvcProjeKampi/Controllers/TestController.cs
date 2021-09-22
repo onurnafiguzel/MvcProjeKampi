@@ -14,7 +14,7 @@ namespace MvcProjeKampi.Controllers
             return View();
         }
 
-        public ActionResult SweerAlert()
+        public ActionResult SweetAlert()
         {
             return View();
         }
