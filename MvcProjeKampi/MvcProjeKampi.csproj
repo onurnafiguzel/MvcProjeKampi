@@ -2047,7 +2047,7 @@
     <Content Include="AdminLTE-3.0.4\web\css\simpleLightbox.css" />
     <Content Include="AdminLTE-3.0.4\web\css\snow.css" />
     <Content Include="AdminLTE-3.0.4\web\css\style.css" />
-    <Content Include="AdminLTE-3.0.4\web\images\banner.jpg" />
+    <Content Include="AdminLTE-3.0.4\web\images\banner2.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\close.png" />
     <Content Include="AdminLTE-3.0.4\web\images\contact.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\exp.jpg" />
@@ -2063,6 +2063,7 @@
     <Content Include="AdminLTE-3.0.4\web\images\loader.gif" />
     <Content Include="AdminLTE-3.0.4\web\images\move_up.png" />
     <Content Include="AdminLTE-3.0.4\web\images\next.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\pp.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\prev.png" />
     <Content Include="AdminLTE-3.0.4\web\images\serve.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\stats.jpg" />
