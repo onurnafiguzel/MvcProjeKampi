@@ -32,5 +32,20 @@ namespace MvcProjeKampi.Controllers
             adminManager.AdminAdd(admin);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult EditAdmin(int id)
+        {
+            var result = adminManager.GetById(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult EditAdmin(Admin admin)
+        {
+            adminManager.AdminUpdate(admin);
+            return RedirectToAction("Index");
+        }
+
     }
 }
